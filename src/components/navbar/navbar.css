@@ -1,3 +1,15 @@
 .cartWidget{
     color: #ffffff;
 }
+
+.logo{
+    height: 100px;
+    width: 105px;
+}
+ .cart{
+    display: flex;
+ }
+
+ #nav{
+    background-color: black;
+ }
