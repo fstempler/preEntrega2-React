@@ -1,10 +1,10 @@
 import React from "react";
 import './itemListContainer.css';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
     return (
         <div className="container d-flex justify-content-center">
-            <h2 className="title">Item List Container</h2>
+            <h2 className="title">{greeting}</h2>
         </div>
     )
 }

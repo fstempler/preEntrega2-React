@@ -15,7 +15,7 @@ function App() {
       <Navbar/>
       </div>
       <div>
-        <ItemListContainer/>
+        <ItemListContainer greeting={'Hello! This is an Item List Container'}/>
       </div>
       
     </>
