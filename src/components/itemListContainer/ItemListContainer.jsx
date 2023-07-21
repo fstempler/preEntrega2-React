@@ -1,12 +1,20 @@
-import React from "react";
+import { Item } from "../Item/Item";
 import './itemListContainer.css';
 
-const ItemListContainer = ({greeting}) => {
-    return (
-        <div className="container d-flex justify-content-center">
-            <h2 className="title">{greeting}</h2>
+export const ItemListContainer = ({ products }) => (
+    
+        <div className="container d-flex flex-wrap justify-content-center">
+            {products.map ((product) => (
+                <Item 
+                key={product.id}
+                img={product.img} 
+                genre={product.genre} 
+                title={product.title} 
+                artist={product.artist} 
+                price={product.price} 
+                type={product.type}
+                />
+            ))}    
         </div>
-    )
-}
+);
 
-export default ItemListContainer

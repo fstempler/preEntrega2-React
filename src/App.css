@@ -2,11 +2,13 @@
 	font-family: 'Poppins', sans-serif;
 }
 body {
-	width: 100vw;
-	height: 100vh;
+	/* width: 100vw;
+	height: 100vh; */
 	background-image: linear-gradient(to right bottom, #24272a, #303b58, #60467f, #a6438e, #eb387e);
-	background-size: 180% 180%;
+	background-size: cover;
 	animation: gradient-animation 6s ease infinite;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 @keyframes gradient-animation {

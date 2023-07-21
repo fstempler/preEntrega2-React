@@ -1,10 +1,22 @@
 import { useState } from 'react'
-
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import './App.css'
 import Navbar from './components/navbar/Navbar';
-import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import { Home } from './pages/Home';
+import { Detail } from './pages/Detail';
+import { Genre } from './pages/Genre';
+
+const routes = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+    <Route path='/' element={<Home />} />
+    <Route path='/item/:id' element={<Detail />} />
+    <Route path='/genre/:id' element={<div>genre</div>} />
+    </>    
+  )
+);
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,13 +25,10 @@ function App() {
     <>
       <div>
       <Navbar/>
-      </div>
-      <div>
-        <ItemListContainer greeting={'Hello! This is an Item List Container'}/>
-      </div>
-      
+      <RouterProvider router={routes} />
+      </div>      
     </>
-  )
+  );
 }
 
 

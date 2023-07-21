@@ -1,0 +1,143 @@
+const records = [
+    {
+        id:1,
+        title:"Kind Of Blue",
+        artist:"Miles Davis",
+        genre:"Jazz",
+        price:20,
+        img:"https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+        stock:20,
+        type: "Vinyl",
+    },
+    {
+        id:2,
+        title:"A Love Supreme",
+        artist:"John Coltrane",
+        genre:"Jazz",
+        price:25,
+        img:"https://http2.mlstatic.com/D_NQ_NP_610148-MLA26247249384_102017-O.webp",
+        stock:18,
+        type: "Vinyl",
+    },
+    {
+        id:3,
+        title:"The Queen Is Dead",
+        artist:"The Smiths",
+        genre:"Rock",
+        price:17,
+        img:"https://upload.wikimedia.org/wikipedia/en/e/ed/The-Queen-is-Dead-cover.png",
+        stock:25,
+        type: "Vinyl",
+    },
+    {
+        id:4,
+        title:"Zenyatta Mondatta",
+        artist:"The Police",
+        genre:"Rock",
+        price:20,
+        img:"https://upload.wikimedia.org/wikipedia/en/1/15/Police-album-zenyattamondatta.jpg",
+        stock:5,
+        type: "Vinyl",
+    },
+    {
+        id:5,
+        title:"1999",
+        artist:"Prince",
+        genre:"Pop",
+        price:30,
+        img:"https://upload.wikimedia.org/wikipedia/en/9/9c/Prince_-1999.jpg",
+        stock:24,
+        type: "Vinyl",
+    },
+    {
+        id:6,
+        title:"Endless Summer Vacation",
+        artist:"Miley Cyrus",
+        genre:"Pop",
+        price:10,
+        img:"https://m.media-amazon.com/images/I/31WmKkRakeL._SX300_SY300_QL70_FMwebp_.jpg",
+        stock:45,
+        type: "Cd",
+    },
+    {
+        id:7,
+        title:"After The Rain",
+        artist:"Muddy Waters",
+        genre:"Blues",
+        price:16,
+        img:"https://upload.wikimedia.org/wikipedia/en/3/33/Muddy_Waters_After_the_Rain.jpg",
+        stock:11,
+        type: "Vinyl",
+    },
+    {
+        id:8,
+        title:"Riding With The King",
+        artist:"B.B. King & Eric Clapton",
+        genre:"Blues",
+        price:7,
+        img:"https://upload.wikimedia.org/wikipedia/en/f/f6/Claptonridingwiththeking.jpg",
+        stock:3,
+        type: "Cd",
+    },
+    {
+        id:9,
+        title:"What's Going On",
+        artist:"Marvin Gaye",
+        genre:"Funk/Soul",
+        price:25,
+        img:"https://upload.wikimedia.org/wikipedia/en/8/84/MarvinGayeWhat%27sGoingOnalbumcover.jpg",
+        stock:3,
+        type: "Vinyl",
+    },
+    {
+        id:10,
+        title:"Live At The Apollo",
+        artist:"James Brown",
+        genre:"Funk/Soul",
+        price:45,
+        img:"https://upload.wikimedia.org/wikipedia/en/5/5a/James_Brown-Live_at_the_Apollo_%28album_cover%29.jpg",
+        stock:2,
+        type: "Vinyl",
+    },
+    {
+        id:11,
+        title:"Modern Clix",
+        artist:"Charlie García",
+        genre:"Argentine Rock",
+        price:12,
+        img:"https://upload.wikimedia.org/wikipedia/commons/8/8e/Clics-modernos-charly-garcia-front.jpg",
+        stock:2,
+        type: "Vinyl",
+    },
+    {
+        id:12,
+        title:"Pelusón of Milk",
+        artist:"Luis Alberto Spinetta",
+        genre:"Argentine Rock",
+        price:5,
+        img:"https://www.cmtv.com.ar/tapas-cd/spinetapelu.webp",
+        stock:2,
+        type: "Cd",
+    },
+]
+
+export const getRecords = (genreId) => {
+    const filteredRecords = genreId
+    ? records.filter((record) => record.genre.toLowerCase() === genreId.toLowerCase())
+    : records;
+
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(filteredRecords);            
+        }, 500);
+    });
+};
+export const getRecord = (recordId) => {
+    const record = records.find((record) => record.id === recordId[0]);
+console.log(record);
+    return new Promise((res)=>{
+        setTimeout(()=>{
+            res(record)
+        },2000)
+    })
+};
