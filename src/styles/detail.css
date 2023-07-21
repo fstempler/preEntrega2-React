@@ -1,0 +1,47 @@
+
+
+
+.detail__img {
+    height: 400px;
+    width: 400px;
+    margin: 10px;
+    
+}
+img{
+   width: 100%; 
+   height: 100%;
+   object-fit: contain;
+   padding: 0;
+}
+
+.detail__info-title{
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.detail__info-artist{
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.detail__info-type{
+    color: rgb(99, 99, 99);
+}
+
+.detail__info-review{
+    color: #ffffff;
+}
+
+.detail__info-price{
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.detail__info-stock{
+    color: #ffffff;
+}
+.item__btn{
+    margin-top: 10px;            
+}

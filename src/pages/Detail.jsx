@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRecord } from '../lib/records.requests';
 import { useParams } from 'react-router-dom';
+import '../styles/detail.css';
 
 export const Detail = () => {
     const {id} = useParams();
@@ -16,18 +17,27 @@ export const Detail = () => {
 
      return (
         <div className="container">
-            <div className="detail">
-                <div className="detail__img">
+            <div className="detail row">
+                <div className="detail__img col-sm d-flex align-items-center">
                     <img src={record.img} alt={record.title} />
                 </div>
-            <div className="detail__info">
-                <span className="detail__info-type">{record.type}</span>
+            <div className="detail__info col-sm d-flex align-items-start flex-column align-content-between flex-wrap">                
                 <span className="detail__info-title">{record.title}</span>
+                
                 <span className="detail__info-artist">{record.artist}</span>
+                
+                <span className="detail__info-type">{record.type}</span>
+                <br />                                
                 <p className="detail__info-review">{record.review}</p>
+                
                 <span className="detail__info-price">${(record.price)}</span>
-                <span className="detail__info-stock">{record.stock} left!</span>
+                <br />
+                <span className="detail__info-stock">Only {record.stock} left!</span>
+                <div className="item__btn">
+                    <button type="button" className="btn btn-dark">Buy</button>
+                </div>   
             </div>
+            
             </div>
         </div>
      );
