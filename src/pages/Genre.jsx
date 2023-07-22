@@ -6,6 +6,12 @@ import { ItemListContainer } from "../components/itemListContainer/ItemListConta
 export const Genre = () => {
     const {id} = useParams();
     const [products, setProducts] = useState([]);
+    useEffect(() => {
+        getRecords(id)
+        .then(res => {
+            setProducts(res)}
+            )
+    }, [id]);
     return (
         <div>
             <div className="container">

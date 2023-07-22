@@ -10,11 +10,11 @@ import { Genre } from './pages/Genre';
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    <>
-    <Route path='/' element={<Home />} />
-    <Route path='/item/:id' element={<Detail />} />
-    <Route path='/genre/:id' element={<div>genre</div>} />
-    </>    
+    <Route element={<Navbar />}>
+      <Route path='/' element={<Home />} />
+      <Route path='/item/:id' element={<Detail />} />
+      <Route path='/genre/:id' element={<Genre />} />
+    </Route>    
   )
 );
 
@@ -23,8 +23,7 @@ function App() {
 
   return (
     <>
-      <div>
-      <Navbar/>
+      <div>      
       <RouterProvider router={routes} />
       </div>      
     </>

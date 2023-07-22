@@ -2,39 +2,41 @@
 import './navbar.css';
 import CartWidget from "../cartWidget/CartWidget";
 import logo from "../../assets/logo-removebg-preview.png"
+import { NavLink, Outlet } from "react-router-dom";
 
 
 
 const Navbar = () => {
     return (
+      <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent" data-bs-theme="dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#"><img className="logo" src={logo}/></a>
+        <NavLink className="navbar-brand" to={"/"}><img className="logo" src={logo}/></NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <NavLink to={"/"}className="nav-link active" aria-current="page" href="#">Home</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">CDs</a>
+              <NavLink className="nav-link" href="#">CDs</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Vinyls</a>
+              <NavLink className="nav-link" href="#">Vinyls</NavLink>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Genres
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Jazz</a></li>
-                <li><a className="dropdown-item" href="#">Rock</a></li>
-                <li><a className="dropdown-item" href="#">Blues</a></li>
-                <li><a className="dropdown-item" href="#">Pop</a></li>
-                <li><a className="dropdown-item" href="#">Funk/Soul</a></li>
-                <li><a className="dropdown-item" href="#">Argentine Rock</a></li>
+                <li><NavLink to={"/genre/jazz"} className="dropdown-item">Jazz</NavLink></li>
+                <li><NavLink to={"/genre/rock"}className="dropdown-item">Rock</NavLink></li>
+                <li><NavLink to={"/genre/blues"}className="dropdown-item">Blues</NavLink></li>
+                <li><NavLink to={"/genre/pop"}className="dropdown-item">Pop</NavLink></li>
+                <li><NavLink to={"/genre/funk-soul"}className="dropdown-item">Funk/Soul</NavLink></li>
+                <li><NavLink to={"/genre/argentine rock"}className="dropdown-item">Argentine Rock</NavLink></li>
               </ul>
             </li>
             <li className="nav-item">
@@ -56,6 +58,8 @@ const Navbar = () => {
       </div>
       
     </nav>
+    <Outlet />
+    </>
     )
 }
 

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./item.css";
 
 export const Item = ({
@@ -10,9 +11,10 @@ export const Item = ({
     type
 
 }) => {
+    const navigate = useNavigate();
     return (
         
-        <div className="d-flex flex-wrap justify-content-center main">
+        <div className="d-flex flex-wrap justify-content-center main" onClick={() => navigate (`/item/${id}`)}>
             <div className="row">
                 <div className="Item col">
                     <div className="item__img">
