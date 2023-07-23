@@ -7,6 +7,8 @@ import Navbar from './components/navbar/Navbar';
 import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
 import { Genre } from './pages/Genre';
+import { Type } from './pages/Type';
+import { Contact } from './pages/Contact';
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +16,8 @@ const routes = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='/item/:id' element={<Detail />} />
       <Route path='/genre/:id' element={<Genre />} />
+      <Route path='/type/:id' element={<Type />} />
+      <Route path='/contact' element={<Contact />} />
     </Route>    
   )
 );

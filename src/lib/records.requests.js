@@ -133,6 +133,18 @@ const records = [
     },
 ]
 
+export const getTypes = (typeId) => {
+    const filteredRecords = typeId
+    ? records.filter((record) => record.type.toLowerCase() === typeId.toLowerCase())
+    : records;
+
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(filteredRecords);            
+        }, 500);
+    });
+};
+
 export const getRecords = (genreId) => {
     const filteredRecords = genreId
     ? records.filter((record) => record.genre.toLowerCase() === genreId.toLowerCase())

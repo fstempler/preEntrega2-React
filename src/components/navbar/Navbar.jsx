@@ -18,13 +18,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to={"/"}className="nav-link active" aria-current="page" href="#">Home</NavLink>
+              <NavLink to={"/"} className="nav-link active" aria-current="page" href="#">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" href="#">CDs</NavLink>
+              <NavLink to={"/type/cd"} className="nav-link" href="#">CDs</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" href="#">Vinyls</NavLink>
+              <NavLink to={"/type/vinyl"} className="nav-link" href="#">Vinyls</NavLink>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,15 +32,15 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li><NavLink to={"/genre/jazz"} className="dropdown-item">Jazz</NavLink></li>
-                <li><NavLink to={"/genre/rock"}className="dropdown-item">Rock</NavLink></li>
-                <li><NavLink to={"/genre/blues"}className="dropdown-item">Blues</NavLink></li>
-                <li><NavLink to={"/genre/pop"}className="dropdown-item">Pop</NavLink></li>
-                <li><NavLink to={"/genre/funk-soul"}className="dropdown-item">Funk/Soul</NavLink></li>
-                <li><NavLink to={"/genre/argentine rock"}className="dropdown-item">Argentine Rock</NavLink></li>
+                <li><NavLink to={"/genre/rock"} className="dropdown-item">Rock</NavLink></li>
+                <li><NavLink to={"/genre/blues"} className="dropdown-item">Blues</NavLink></li>
+                <li><NavLink to={"/genre/pop"} className="dropdown-item">Pop</NavLink></li>
+                <li><NavLink to={"/genre/funk-soul"} className="dropdown-item">Funk/Soul</NavLink></li>
+                <li><NavLink to={"/genre/argentine rock"} className="dropdown-item">Argentine Rock</NavLink></li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Contact</a>
+              <NavLink to={"/contact"} className="nav-link">Contact</NavLink>
             </li>
 
           </ul>   

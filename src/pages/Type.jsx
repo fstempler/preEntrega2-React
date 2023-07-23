@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { getRecords } from "../lib/records.requests";
+import { getTypes } from "../lib/records.requests";
 import { ItemListContainer } from "../components/itemListContainer/ItemListContainer";
 
-export const Genre = () => {
+export const Type = () => {
     const {id} = useParams();
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        getRecords(id)
+        getTypes(id)
         .then(res => {
             setProducts(res)}
             )
