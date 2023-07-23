@@ -1,6 +1,6 @@
 import '../styles/contact.css';
 
-
+//Simulador de un formulario de contacto. 
 export const Contact = () => {
     return (
         <div className="container">

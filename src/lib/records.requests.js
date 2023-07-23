@@ -133,6 +133,12 @@ const records = [
     },
 ]
 
+// Toma el parámetro typeId y devuelve una lista de registros filtrados con respecto al tipo especificado.
+// "typeId" puede ser Vinyl o CDATASection, si typeId tiene un valor la función filtra los registros por ese tipo. 
+// Si es nulo o no se proporciona la función devuelve todos los registros.
+// Utiliza filter para filtrar los los registros según lo especificado en typeId. 
+// setTimeout se utiliza para simular una llamada asincrónica.
+
 export const getTypes = (typeId) => {
     const filteredRecords = typeId
     ? records.filter((record) => record.type.toLowerCase() === typeId.toLowerCase())
@@ -145,6 +151,7 @@ export const getTypes = (typeId) => {
     });
 };
 
+//Funciona igual que getTypes pero en este caso se filtra por el valor de genre.
 export const getRecords = (genreId) => {
     const filteredRecords = genreId
     ? records.filter((record) => record.genre.toLowerCase() === genreId.toLowerCase())
@@ -156,9 +163,13 @@ export const getRecords = (genreId) => {
         }, 500);
     });
 };
+
+// Toma el parámetro recordId y lo busca en el array "records".
+// Utiliza "find" para buscar el registro en el array "records" y compara record con record.id para encontrar el registro
+// cuyo ID coicide con el de recordId.
+  
 export const getRecord = (recordId) => {
     const record = records.find((record) => record.id === parseInt(recordId));
-console.log(record);
     return new Promise((res)=>{
         setTimeout(()=>{
             res(record)

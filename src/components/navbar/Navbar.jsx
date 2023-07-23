@@ -5,6 +5,7 @@ import logo from "../../assets/logo-removebg-preview.png"
 import { NavLink, Outlet } from "react-router-dom";
 
 
+//Barrra de navegación del sitio con un cart simulado. 
 
 const Navbar = () => {
     return (
