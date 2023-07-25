@@ -20,7 +20,7 @@ export const Item = ({
                     <div className="item__img">
                         <img src={img} />
                     </div>
-                    <div className="item__content">
+                    <div className="item__content d-flex align-items-start h-100">
                         <div className="item__content-info">
                             <span className="item__content-type">{type}</span>
                             <br />
@@ -30,10 +30,11 @@ export const Item = ({
                             <br />
                             <span className="item__content-artist">{artist}</span>
                         </div>
-                        <span className="item__content-price">${price}</span>                                                                
+                                                                                        
                     </div>
-                    <div className="item__btn">
+                    <div className="item__btn d-flex justify-content-around align-items-center">
                         <button type="button" className="btn btn-dark">Buy</button>
+                        <span className="item__content-price">${price}</span>
                     </div>                
                 </div>        
                 

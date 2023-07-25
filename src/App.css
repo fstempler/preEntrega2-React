@@ -3,7 +3,7 @@
 }
 body {
 	width: 100vw;
-	height: 100vh; 
+	min-height: 100vh; 
 	background-image: linear-gradient(to right bottom, #24272a, #303b58, #60467f, #a6438e, #eb387e);
 	background-size: cover;
 	animation: gradient-animation 6s ease infinite;
