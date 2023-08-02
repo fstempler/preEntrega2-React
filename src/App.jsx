@@ -9,6 +9,7 @@ import { Detail } from './pages/Detail';
 import { Genre } from './pages/Genre';
 import { Type } from './pages/Type';
 import { Contact } from './pages/Contact';
+import { CartProvider } from './state/Cart.context';
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +26,10 @@ const routes = createBrowserRouter(
 function App() {
   return (
     <>
-      <div>      
-      <RouterProvider router={routes} />
+      <div>     
+      <CartProvider>
+        <RouterProvider router={routes} />
+      </CartProvider>   
       </div>      
     </>
   );

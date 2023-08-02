@@ -1,0 +1,39 @@
+.item-count{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: max-content;
+    align-items: center;
+}
+.item-count__buttons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.item-count__buttons button{
+    background: #737373;
+    padding: 8px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+.item-count__buttons span {
+    font-size: 20px;
+    width: 25px;
+}
+.item-count__add{
+    padding: 8px 16px;
+    background: #646cff;
+    max-width: 300px;
+    border-radius: 8px;
+    color: white;
+}
+.item-count__add:disabled{
+    padding: 8px 16px;
+    background: #494b63;
+    max-width: 300px;
+    border-radius: 8px;
+    color: white;
+}

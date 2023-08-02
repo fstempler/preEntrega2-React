@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { ItemCount } from "../components/ItemCount";
 import { getRecord } from '../lib/records.requests';
 import { useParams } from 'react-router-dom';
 import '../styles/detail.css';
+import { useCartContext } from "../state/Cart.context";
 
 //Detail utiliza useParams para obtener el tipo de producto que quiere mostrar.
 //Utiliza useState para almacenar el listado de productos ya filtrado y 
@@ -14,6 +16,8 @@ import '../styles/detail.css';
 export const Detail = () => {
     const {id} = useParams();
     const [record, setRecord] = useState({});
+    const {addProduct} = useCartContext();
+    
 
     useEffect(() => {
         getRecord(+id).then((res) => {
@@ -41,9 +45,10 @@ export const Detail = () => {
                 <span className="detail__info-price">${(record.price)}</span>
                 <br />
                 <span className="detail__info-stock">Only {record.stock} left!</span>
-                <div className="item__btn">
+                <ItemCount stock={record.stock} onAdd={() => alert("Purchased")} />
+                {/* <div className="item__btn">
                     <button type="button" className="btn btn-dark">Buy</button>
-                </div>   
+                </div>    */}
             </div>
             
             </div>

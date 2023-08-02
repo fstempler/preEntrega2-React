@@ -34,7 +34,7 @@ export const Item = ({
                     </div>
                     <div className="item__btn d-flex justify-content-around align-items-center">
                         <button type="button" className="btn btn-dark">Buy</button>
-                        <span className="item__content-price">${price}</span>
+                        <span className="item__content-price">${price.toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                     </div>                
                 </div>        
                 
