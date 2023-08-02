@@ -1,0 +1,21 @@
+.totalContainer{
+    display: flex;
+    justify-content: center; 
+}
+
+.itemContainer{
+    margin: 10px;
+}
+
+.imgProduct{
+    height: 150px;
+    width: 150px;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center; 
+}
+
+.btn{
+    margin: 5px;
+}

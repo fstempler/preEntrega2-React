@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ItemCount } from "../components/ItemCount";
+import { ItemCount } from "../components/ItemCount/ItemCount";
+import { Item } from "../components/Item/Item";
 import { getRecord } from '../lib/records.requests';
 import { useParams } from 'react-router-dom';
 import '../styles/detail.css';
@@ -24,6 +25,10 @@ export const Detail = () => {
             setRecord(res);
         });
     }, []);
+
+    const handleAdd = (qty) => {
+        addProduct(record, qty);
+    }
     
     if (record === null || Object.keys(record).length === 0) return null;
 
@@ -45,10 +50,8 @@ export const Detail = () => {
                 <span className="detail__info-price">${(record.price)}</span>
                 <br />
                 <span className="detail__info-stock">Only {record.stock} left!</span>
-                <ItemCount stock={record.stock} onAdd={() => alert("Purchased")} />
-                {/* <div className="item__btn">
-                    <button type="button" className="btn btn-dark">Buy</button>
-                </div>    */}
+                <ItemCount stock={record.stock} onAdd={handleAdd} />
+                
             </div>
             
             </div>

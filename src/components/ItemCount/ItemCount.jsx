@@ -15,12 +15,12 @@ export const ItemCount = ({ stock = 0, onAdd}) => {
             {stock ? (
                 <>
                 <div className="item-count__button">
-                    <button onClick={() => handleSub()}>-</button>
-                    <span>{count}</span>
-                    <button onClick={() => handleSum()}>+</button>
+                    <button onClick={() => handleSub()} className="btn btn-dark">-</button>
+                    <span>  {count}  </span>
+                    <button onClick={() => handleSum()} className="btn btn-dark">+</button>
                 </div>
                 <button
-                    className="item-count__add"
+                    className="item-count__add btn btn-dark"
                     disabled={!stock}
                     onClick={() => {
                         onAdd(count);

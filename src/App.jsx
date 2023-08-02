@@ -9,7 +9,9 @@ import { Detail } from './pages/Detail';
 import { Genre } from './pages/Genre';
 import { Type } from './pages/Type';
 import { Contact } from './pages/Contact';
+import { Cart } from './pages/Cart';
 import { CartProvider } from './state/Cart.context';
+
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +21,7 @@ const routes = createBrowserRouter(
       <Route path='/genre/:id' element={<Genre />} />
       <Route path='/type/:id' element={<Type />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/cart' element={<Cart />} />
     </Route>    
   )
 );
