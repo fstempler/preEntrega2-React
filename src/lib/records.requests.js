@@ -133,11 +133,17 @@ const records = [
     },
 ]
 
+import { collection, getDocs, where, query } from 'firebase/firestore';
+import { db } from './config';
+
 // Toma el parámetro typeId y devuelve una lista de registros filtrados con respecto al tipo especificado.
 // "typeId" puede ser Vinyl o CDATASection, si typeId tiene un valor la función filtra los registros por ese tipo. 
 // Si es nulo o no se proporciona la función devuelve todos los registros.
 // Utiliza filter para filtrar los los registros según lo especificado en typeId. 
 // setTimeout se utiliza para simular una llamada asincrónica.
+
+const recordsRef = collection(db, "itemns");
+
 
 export const getTypes = (typeId) => {
     const filteredRecords = typeId

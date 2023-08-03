@@ -2,18 +2,35 @@
     display: flex;
     justify-content: center; 
 }
-
+.total {
+    font-size: 1.5em;
+}
 .itemContainer{
-    margin: 10px;
+       padding: 10px;
+       margin-top: 5px;
+}
+.infoContainer{
+    display: grid;
+    align-self: center;
+}
+
+.title{
+    font-size: 1.3em;
+}
+.removeContainer {
+    display: grid;
+    align-self: center;
 }
 
 .imgProduct{
     height: 150px;
-    width: 150px;
+    width: 150px;    
 }
+ 
 .btnContainer{
     display: flex;
     justify-content: center; 
+    margin-top: 10px;
 }
 
 .btn{

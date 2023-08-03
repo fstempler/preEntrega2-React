@@ -18,7 +18,7 @@ export const CartProvider = ({children}) => {
                 setCart(newCart);
         }; 
     //Función para eliminar productos del carrito
-    const removeProduct = () => {
+    const removeProduct = (id) => {
         const newCart = cart.filter((product) => product.id !== id);
         setCart(newCart);
     }
