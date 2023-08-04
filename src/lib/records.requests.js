@@ -153,7 +153,7 @@ export const getTypes = (typeId) => {
     return new Promise((res) => {
         setTimeout(() => {
             res(filteredRecords);            
-        }, 500);
+        }, 2000);
     });
 };
 
@@ -166,7 +166,7 @@ export const getRecords = (genreId) => {
     return new Promise((res) => {
         setTimeout(() => {
             res(filteredRecords);            
-        }, 500);
+        }, 2000);
     });
 };
 

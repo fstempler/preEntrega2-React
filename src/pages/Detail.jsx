@@ -5,6 +5,7 @@ import { getRecord } from '../lib/records.requests';
 import { useParams } from 'react-router-dom';
 import '../styles/detail.css';
 import { useCartContext } from "../state/Cart.context";
+import { Loader } from '../components/Loader/Loader';
 
 //Detail utiliza useParams para obtener el tipo de producto que quiere mostrar.
 //Utiliza useState para almacenar el listado de productos ya filtrado y 
@@ -30,7 +31,7 @@ export const Detail = () => {
         addProduct(record, qty);
     }
     
-    if (record === null || Object.keys(record).length === 0) return null;
+    if (record === null || Object.keys(record).length === 0) return <Loader />;
 
      return (
         <div className="container">

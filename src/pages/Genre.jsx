@@ -11,16 +11,20 @@ import { ItemListContainer } from "../components/itemListContainer/ItemListConta
 export const Genre = () => {
     const {id} = useParams();
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
+        setProducts([]);
+        setIsLoading(true);
         getRecords(id)
         .then(res => {
-            setProducts(res)}
-            )
+            setIsLoading(false);
+            setProducts(res);
+        });
     }, [id]);
     return (
         <div>
             <div>
-            <ItemListContainer products={products} />
+            <ItemListContainer products={products} loading={isLoading}/>
             </div>
         </div>
     )

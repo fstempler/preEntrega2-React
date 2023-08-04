@@ -1,10 +1,63 @@
 import { Item } from "../Item/Item";
 import './itemListContainer.css';
 
-export const ItemListContainer = ({ products }) => (
+export const ItemListContainer = ({ products, loading }) => (
     
         <div className="container d-flex flex-wrap justify-content-center">
-            {products.map ((product) => (
+            
+            {loading ? (
+                <>
+                <div className="d-flex justify-content-center mainLoader">
+                    <div className="row align-items-center">
+                        <div className="Item col text-center">
+                            <div class="lds-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>                    
+                        </div>        
+                    </div>                        
+                </div>
+                <div className="d-flex justify-content-center mainLoader">
+                    <div className="row align-items-center">
+                        <div className="Item col text-center">
+                            <div class="lds-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>                    
+                        </div>        
+                    </div>                        
+                </div>
+                <div className="d-flex justify-content-center mainLoader">
+                    <div className="row align-items-center">
+                        <div className="Item col text-center">
+                            <div class="lds-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>                    
+                        </div>        
+                    </div>                        
+                </div>
+                <div className="d-flex justify-content-center mainLoader">
+                    <div className="row align-items-center">
+                        <div className="Item col text-center">
+                            <div class="lds-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>                    
+                        </div>        
+                    </div>                        
+                </div>
+                </>
+            ) : (
+            products.map ((product) => (
                 <Item 
                 key={product.id}
                 id={product.id}
@@ -15,7 +68,8 @@ export const ItemListContainer = ({ products }) => (
                 price={product.price} 
                 type={product.type}
                 />
-            ))}    
+                ))
+            )}    
         </div>
 );
 
