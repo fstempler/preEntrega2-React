@@ -137,12 +137,12 @@ import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from './config';
 
 // Toma el parámetro typeId y devuelve una lista de registros filtrados con respecto al tipo especificado.
-// "typeId" puede ser Vinyl o CDATASection, si typeId tiene un valor la función filtra los registros por ese tipo. 
+// "typeId" puede ser Vinyl o Cd, si typeId tiene un valor la función filtra los registros por ese tipo. 
 // Si es nulo o no se proporciona la función devuelve todos los registros.
 // Utiliza filter para filtrar los los registros según lo especificado en typeId. 
-// setTimeout se utiliza para simular una llamada asincrónica.
+// setTimeout se utiliza para simular una llamada asíncrona.
 
-const recordsRef = collection(db, "itemns");
+const recordsRef = collection(db, "items");
 
 
 export const getTypes = (typeId) => {
@@ -158,16 +158,26 @@ export const getTypes = (typeId) => {
 };
 
 //Funciona igual que getTypes pero en este caso se filtra por el valor de genre.
-export const getRecords = (genreId) => {
-    const filteredRecords = genreId
-    ? records.filter((record) => record.genre.toLowerCase() === genreId.toLowerCase())
-    : records;
+// export const getRecords = (genreId) => {
+//     const filteredRecords = genreId
+//     ? records.filter((record) => record.genre.toLowerCase() === genreId.toLowerCase())
+//     : records;
 
-    return new Promise((res) => {
-        setTimeout(() => {
-            res(filteredRecords);            
-        }, 2000);
-    });
+//     return new Promise((res) => {
+//         setTimeout(() => {
+//             res(filteredRecords);            
+//         }, 2000);
+//     });
+// };
+
+export const getRecords = async (id) => {
+    let records = [];
+    const querySnapshot = await getDocs(recordsRef);    
+    querySnapshot.forEach((doc) => {
+        records = [...records, { ...doc.data(), id: doc.id}];        
+});
+
+return records;   
 };
 
 // Toma el parámetro recordId y lo busca en el array "records".

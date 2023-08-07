@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import { useCartContext } from "../state/Cart.context";
-import '../styles/cart.css'
+import '../styles/cart.css';
+
+
 
 
 export const Cart = () => {
         const {cart, cleanCart, getTotalPrice, removeProduct} = useCartContext();
+
+
         useEffect(() => {console.log({ cart });
     }, [cart]);
     return <div className="container">
@@ -31,6 +35,7 @@ export const Cart = () => {
                     <span>Quantity: {item.qty}</span>
                     <span>Total: ${(item.qty * item.price).toFixed(2).toLocaleString("es-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
+                
                 <div className="col removeContainer">
                     <button className="btn btn-dark" key={item.id} onClick={() => removeProduct(item.id)}>
                     Remove Item
