@@ -11,7 +11,7 @@ export const Item = ({
     type
 
 }) => {
-    const navigate = useNavigate();
+    const navigate = useNavigate();    
     return (
         
         <div className="d-flex flex-wrap justify-content-center main" onClick={() => navigate (`/item/${id}`)}>

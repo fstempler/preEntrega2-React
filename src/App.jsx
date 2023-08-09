@@ -11,6 +11,7 @@ import { Type } from './pages/Type';
 import { Contact } from './pages/Contact';
 import { Cart } from './pages/Cart';
 import { CartProvider } from './state/Cart.context';
+import { CartForm } from './pages/CartForm';
 
 
 const routes = createBrowserRouter(
@@ -22,6 +23,7 @@ const routes = createBrowserRouter(
       <Route path='/type/:id' element={<Type />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/cartform' element={<CartForm />} />
     </Route>    
   )
 );

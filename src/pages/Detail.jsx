@@ -22,7 +22,7 @@ export const Detail = () => {
     
 
     useEffect(() => {
-        getRecord(+id).then((res) => {
+        getRecord(id).then((res) => {
             setRecord(res);
         });
     }, []);

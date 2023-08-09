@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { useCartContext } from "../state/Cart.context";
+import { NavLink } from "react-router-dom";
 import '../styles/cart.css';
 
 
 
 
-export const Cart = () => {
+export const Cart = () => {        
         const {cart, cleanCart, getTotalPrice, removeProduct} = useCartContext();
 
 
-        useEffect(() => {console.log({ cart });
-    }, [cart]);
+    //     useEffect(() => {console.log({ cart });
+    // }, [cart]);
     return <div className="container">
         {
             cart.length ? 
@@ -19,10 +20,14 @@ export const Cart = () => {
         
             <span className="total">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
             </span>
+        
+            <button onClick={() => cleanCart()} className="btn btn-dark">Empty Cart</button>
+                
+        
         </div>
         
         {
-            cart.map((item) => <div className="itemContainer container text-center">
+            cart.map((item) => <div className="itemContainer container text-center" key={item.id}>
                 <div className="row align-items-start">
                 <div className="col">
                     <img className="imgProduct" src={item.img} />
@@ -43,10 +48,11 @@ export const Cart = () => {
                 </div>
                 </div>
                 </div>)
-        }
-        <div className="btnContainer">                
-                <button onClick={() => cleanCart()} className="btn btn-dark">Empty Cart</button>
-                
+        }        
+        <div className="btnBuyContainer">  
+            <div className="nav-item">
+            <NavLink to={"/cartform"} className="nav-link"><button className="btn btn-warning">Buy!</button></NavLink>                                     
+            </div>            
         </div>
         </> : <div className="text-center emptyCart">
                 <h4 className="text-center">Cart is empty</h4>

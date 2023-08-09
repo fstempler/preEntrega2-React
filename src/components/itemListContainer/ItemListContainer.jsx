@@ -10,7 +10,7 @@ export const ItemListContainer = ({ products, loading }) => (
                 <div className="d-flex justify-content-center mainLoader">
                     <div className="row align-items-center">
                         <div className="Item col text-center">
-                            <div class="lds-ellipsis">
+                            <div className="lds-ellipsis">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -22,7 +22,7 @@ export const ItemListContainer = ({ products, loading }) => (
                 <div className="d-flex justify-content-center mainLoader">
                     <div className="row align-items-center">
                         <div className="Item col text-center">
-                            <div class="lds-ellipsis">
+                            <div className="lds-ellipsis">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -34,7 +34,7 @@ export const ItemListContainer = ({ products, loading }) => (
                 <div className="d-flex justify-content-center mainLoader">
                     <div className="row align-items-center">
                         <div className="Item col text-center">
-                            <div class="lds-ellipsis">
+                            <div className="lds-ellipsis">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -46,7 +46,7 @@ export const ItemListContainer = ({ products, loading }) => (
                 <div className="d-flex justify-content-center mainLoader">
                     <div className="row align-items-center">
                         <div className="Item col text-center">
-                            <div class="lds-ellipsis">
+                            <div className="lds-ellipsis">
                                 <div></div>
                                 <div></div>
                                 <div></div>
