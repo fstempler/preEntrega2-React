@@ -103,7 +103,7 @@ export const CartForm = () => {
                     type="button" 
                     className="btn btn-dark"
                     onClick={createOrder}>
-                        Submit
+                        Confirm Order
                     </button>
                 </div>           
             </form>

@@ -55,9 +55,9 @@ export const deleteRecord = async (id) => {
 //Batch - Actualiza los stocks en la d 
 export const updateManyRecords = async ( items ) => {
     const batch = writeBatch(db);
-    items.forEach((id, qty) => {
-        batch.update(doc(db, "items", id), {
-            stock: increment(-qty)
+    items.forEach((item, qty) => {
+        batch.update(doc(db, "items", item.id), {
+            stock: increment(-item.qty)
         })
     })
     batch.commit();
