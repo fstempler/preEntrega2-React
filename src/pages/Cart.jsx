@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useCartContext } from "../state/Cart.context";
 import { NavLink } from "react-router-dom";
 import '../styles/cart.css';

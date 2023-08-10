@@ -25,9 +25,9 @@ const routes = createBrowserRouter(
       <Route path='/cart' element={<Cart />} />
       <Route path='/cartform' element={<CartForm />} />
     </Route>,    
-    <Route element={<Footer />}>
-      <Route path='/' element={<Home /> }/>
-    </Route>
+    // <Route element={<Footer />}>
+    //   <Route path='/' element={<Home /> }/>
+    // </Route>
   )  
 );
 
@@ -40,8 +40,9 @@ function App() {
       </CartProvider>   
       
       </div>
-      <Footer />
+      <Footer />  
     </>
+    
   );
 }
 

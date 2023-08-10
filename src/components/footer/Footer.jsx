@@ -8,9 +8,9 @@ export const Footer = () => {
         
         <div className='footer d-flex'>
             <div className='logoContainer'>
-            <NavLink to={"/"}>
+            
             <img className="logoFooter" src={logo}/>
-            </NavLink>
+            
             {/* <NavLink className="navbar-brand" to={"/"}><img className="logo" src={logo}/></NavLink> */}
             </div>
             <div className='text'>
