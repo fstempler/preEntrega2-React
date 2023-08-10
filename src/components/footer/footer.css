@@ -1,0 +1,34 @@
+.footer{
+    background-color: #22333B85;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoFooter{
+    height: 70px;
+    width: 70px;
+}
+p{
+    margin: 0;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.rrss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.facebook, .instagram, .youtube, .twitter{
+    margin: 0px 10px;
+}

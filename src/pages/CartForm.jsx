@@ -3,6 +3,8 @@ import { useCartContext } from "../state/Cart.context";
 import { useState } from 'react';
 import { addOrder } from '../lib/orders.requests';
 import { updateManyRecords } from '../lib/records.requests';
+import { NavLink } from "react-router-dom";
+import '../styles/cartForm.css';
 
 
 
@@ -15,6 +17,7 @@ export const CartForm = () => {
 
     const { cart, getTotalPrice, cleanCart } = useCartContext();
     const items = cart.map(({id, title, artist, qty, price})=> ({id, title, artist, qty, price}));
+    
 
     const createOrder = async () => {
         const order = {
@@ -26,52 +29,99 @@ export const CartForm = () => {
         await updateManyRecords(items);
         cleanCart();
         //Ponerlo pantalla emergente con el detalle del pedido y el ID
+        alert(id);
         console.log(id);
-        
+                                             
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
+        createOrder();
+    };
+
+    const validateForm = () => {
+        // Validaciones
+        if (firstName.trim() === '') {
+            alert('First Name is required');
+            return false;
+        }
+
+        if (lastName.trim() === '') {
+            alert('Last Name is required');
+            return false;
+        }
+
+        if (email.trim() === '') {
+            alert('Email is required');
+            return false;
+        }
+
+        if (email !== confirmEmail) {
+            alert('Emails do not match');
+            return false;
+        }
+
+        if (!phone.match(/^\+?\d+$/)) {
+            alert('Invalid Phone number');
+            return false;
+        }
+
+        
+
+        return true;
+    };
+
     return (
-        <div className="container">
-            <div className="row">                
-            <h4>Approve your order</h4>
-            <span className="total">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
-            </span>
-            {
-            cart.map((item) => <div className="itemContainer container text-center" key={item.id}>
-                <div className="row align-items-start">
-                              
-                <div className="infoContainer col">
-                    <span className="title">{item.title}</span>
-                    <span>{item.artist}</span>
-                    <span>${item.price}</span>
-                    <span>Quantity: {item.qty}</span>
-                    <span>Total: ${(item.qty * item.price).toFixed(2).toLocaleString("es-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>                
-                </div>
-                </div>)
-        }        
+        <div className="container row mainContainer">
+            <div className='d-flex justify-content-center confirm'>
+                <h4 className='confirmationText'>Confirm your order</h4>                
             </div>
-            <form className='row g-3 needs-validation' noValidate>
-                <div className=" col-md-4">                                        
-                    
-                <label htmlFor="validationCustom02" className="form-label"> First Name </label>
+            <hr />
+            {/* COL IZQUIERDA */}
+            <div className='col-md-6 col-sm-12'>         
+                <span className="total mb-1">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
+            </span>
+            <hr />
+            {
+            cart.map((item) => 
+            <div className="container" key={item.id}>
+                <div className="align-items-start">                              
+                    <div className="d-flex flex-column mb-3">
+                        <span className="title">{item.title}</span>
+                        <span>{item.artist}</span>
+                        <span>${item.price}</span>
+                        <span>Quantity: {item.qty}</span>
+                        <span>Total: ${(item.qty * item.price).toFixed(2).toLocaleString("es-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    </div>                
+                </div>
+            </div>
+            )
+        }   
+            
+                 
+            </div>
+
+            {/* COL DERECHA */}
+            <div className='col-md-6 col-sm-12'>
+            <form className='g-3' noValidate onSubmit={handleSubmit}>
+                <div className="col">                                        
+                    <label className="form-label"> First Name </label>
                     <input 
                     type="text" 
                     className="form-control" 
-                    id="validationCustom02" 
-                    aria-label="First name" 
                     onChange={(e) => setFirstName(e.target.value)} 
                     required />
-                    <label htmlFor="validationCustom02" className="form-label">Last name </label>
+                    <label className="form-label">Last name </label>
                     <input 
                     type="text" 
-                    className="form-control" 
-                    id="validationCustom02" 
-                    aria-label="Last name" 
+                    className="form-control"                     
                     onChange={(e) => setLastName(e.target.value)} 
                     required />                    
                 </div>
-                <div className="mb-3 mail">
+                <div className="col">
                     <label className="form-label">Email address:</label>
                     <input 
                     type="email" 
@@ -81,7 +131,7 @@ export const CartForm = () => {
                     />
                 </div>
                 
-                <div className="mb-3 mail">
+                <div className="col">
                     <label className="form-label">Confirm Email address:</label>
                     <input 
                     type="email" 
@@ -90,23 +140,32 @@ export const CartForm = () => {
                     onChange={(e) => setConfirmEmail(e.target.value)} 
                     />
                 </div>
-                <div className="mb-3 mail">
+                <div className="col">
                     <label className="form-label">Phone</label>
-                    <input type="email" 
+                    <input 
+                    type="number" 
                     className="form-control" 
                     placeholder="+54 9 11 1234 5678" 
                     onChange={(e) => setPhone(e.target.value)} 
                     />
                 </div>
-                <div className="item__btn">
+                    
+            </form>
+            
+            </div>
+                
+            <div className="item__btn d-flex justify-content-center">
+                <NavLink to={"/"} className="nav-link"> 
                     <button 
-                    type="button" 
-                    className="btn btn-dark"
-                    onClick={createOrder}>
+                        type="submit" 
+                        className="btn btnConfirm"
+                        onClick={handleSubmit}>
                         Confirm Order
                     </button>
-                </div>           
-            </form>
+                </NavLink>
+            </div>       
+            
+            
                 
             
         </div>

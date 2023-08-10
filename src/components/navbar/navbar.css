@@ -9,7 +9,7 @@
  .cart{
     display: flex;
  }
-
- #nav{
-    background-color: black;
- }
+.navbar{
+    background-color: #22333B85;
+}
+ 

@@ -10,7 +10,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const Navbar = () => {
     return (
       <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-transparent" data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to={"/"}><img className="logo" src={logo}/></NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,7 @@ const Navbar = () => {
         </div>        
         
         <CartWidget/>    
+        
       </div>
       
     </nav>

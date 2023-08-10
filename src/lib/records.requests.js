@@ -30,7 +30,7 @@ return records;
 };
 
 
-// Lee un record especídifo de la db
+// Lee un record específico de la db
 
 export const getRecord = async (id) => {
     const document = doc(db, "items", id);
@@ -40,7 +40,7 @@ export const getRecord = async (id) => {
     return null;
 }
 
-//Actualiza un item de la db específico 
+//Actualiza un item específico de la db
 export const updateRecord = async (id, item) => {
     const newRecord = await updateDoc(doc(db, "items", id), item);
     return

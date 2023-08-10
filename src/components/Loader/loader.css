@@ -1,3 +1,6 @@
+.loaderContainer{
+  height: 100vh;
+}
 .lds-spinner {
     color: official;
     display: inline-block;

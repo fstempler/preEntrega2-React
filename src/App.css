@@ -2,6 +2,10 @@
 	font-family: 'Poppins', sans-serif;
 }
 body {
+	background-image: url('./assets/vinylBg.jpg');
+}
+
+/* body {	
 	width: 100vw;
 	min-height: 100vh; 
 	background-image: linear-gradient(to right bottom, #24272a, #303b58, #60467f, #a6438e, #eb387e);
@@ -9,9 +13,9 @@ body {
 	animation: gradient-animation 6s ease infinite;
 	background-position: center;
 	background-repeat: no-repeat;
-}
+} */
 
-@keyframes gradient-animation {
+/* @keyframes gradient-animation {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -23,4 +27,4 @@ body {
 	}
 }
 
-
+ */
