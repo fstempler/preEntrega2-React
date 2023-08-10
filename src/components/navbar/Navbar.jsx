@@ -60,7 +60,8 @@ const Navbar = () => {
       </div>
       
     </nav>
-    <Outlet />
+    
+    
     </>
     )
 }
