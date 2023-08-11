@@ -28,8 +28,22 @@ export const CartProvider = ({children}) => {
     const getCartQty = () => cart.reduce((acc, item) => acc + item.qty, 0);
     //Valor total compra
     const getTotalPrice = () => cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-    
-        
+    //Función para agregar productos una vez en el carrito
+    const increaseQuantity = (id) => {
+        const newCart = cart.map((item) =>
+            item.id === id ? {...item, qty: item.qty + 1} : item
+            );
+        setCart(newCart);
+    }
+
+    //Función para disminuir la cantidad de un producto una vez en el carrito
+    const decreaseQuantity = (id) => {
+        const newCart = cart.map((item) =>
+            item.id === id ? {...item, qty: Math.max(item.qty - 1, 1)} : item
+            );
+
+        setCart(newCart);
+    }
 
     const value = {
         cart,
@@ -37,7 +51,9 @@ export const CartProvider = ({children}) => {
         getCartQty,
         removeProduct,
         cleanCart,
-        getTotalPrice
+        getTotalPrice,
+        increaseQuantity,
+        decreaseQuantity
     }
     return (
         <CartContext.Provider value={value} 

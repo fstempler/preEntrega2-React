@@ -3,7 +3,7 @@ import { useCartContext } from "../state/Cart.context";
 import { useState } from 'react';
 import { addOrder } from '../lib/orders.requests';
 import { updateManyRecords } from '../lib/records.requests';
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/cartForm.css';
@@ -16,13 +16,14 @@ export const CartForm = () => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('')
-
+    
     const { cart, getTotalPrice, cleanCart } = useCartContext();
     const items = cart.map(({id, title, artist, qty, price})=> ({id, title, artist, qty, price}));
     
+    const navigate = useNavigate();
 
     const createOrder = async () => {
-        const navigate = useNavigate();
+        
         if (cart.length == 0 ){
             toast.error('🤨 Cart is empty!', {
                 position: "top-center",
@@ -43,10 +44,10 @@ export const CartForm = () => {
         const id = await addOrder( order );
         await updateManyRecords(items);
         cleanCart();
-        //Ponerlo pantalla emergente con el detalle del pedido y el ID
+        
         toast.info(id,{
             position: "top-center",
-            // autoClose: 3000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -56,7 +57,7 @@ export const CartForm = () => {
             onClose: navigate('/'),
             });
         
-        // console.log(id);
+        
                                              
     }
 }
@@ -69,8 +70,9 @@ export const CartForm = () => {
         createOrder();
     };
 
+    // Validaciones
     const validateForm = () => {
-        // Validaciones
+        
         if (firstName.trim() === '') {
             toast.error('🤨 First Name is required!', {
                 position: "top-center",
@@ -152,7 +154,7 @@ export const CartForm = () => {
                 <h4 className='confirmationText'>Confirm your order</h4>                
             </div>
             <hr />
-            {/* COL IZQUIERDA */}
+            {/* Order detail */}
             <div className='col-md-6 col-sm-12'>         
                 <span className="total mb-1">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
             </span>
@@ -176,7 +178,7 @@ export const CartForm = () => {
                  
             </div>
 
-            {/* COL DERECHA */}
+            {/* Confirmation Form */}
             <div className='col-md-6 col-sm-12'>
             <form className='g-3' noValidate onSubmit={handleSubmit}>
                 <div className="col">                                        
@@ -226,15 +228,13 @@ export const CartForm = () => {
             
             </div>
                 
-            <div className="item__btn d-flex justify-content-center">
-                
+            <div className="item__btn d-flex justify-content-center">                
                     <button 
                         type="submit" 
                         className="btn btnConfirm"
                         onClick={handleSubmit}>
                         Confirm Order
-                    </button>
-                
+                    </button>                
             </div>       
             
             

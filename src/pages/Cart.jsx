@@ -6,7 +6,7 @@ import '../styles/cart.css';
 
 
 export const Cart = () => {        
-        const {cart, cleanCart, getTotalPrice, removeProduct} = useCartContext();
+        const {cart, cleanCart, getTotalPrice, removeProduct, increaseQuantity, decreaseQuantity} = useCartContext();
 
 
     //     useEffect(() => {console.log({ cart });
@@ -36,7 +36,23 @@ export const Cart = () => {
                     <span className="title">{item.title}</span>
                     <span>{item.artist}</span>
                     <span>${item.price}</span>
-                    <span>Quantity: {item.qty}</span>
+                    
+                    <span>
+                    Quantity: {item.qty}{' '}
+                    <button
+                    className="btn btn-dark btn-sm"
+                    onClick={() => increaseQuantity(item.id)}
+                    >
+                    +
+                    </button>{' '}
+                    <button
+                    className="btn btn-dark btn-sm"
+                    onClick={() => decreaseQuantity(item.id)}
+                    >
+                    -
+                    </button>
+                    </span>
+                    
                     <span>Total: ${(item.qty * item.price).toFixed(2).toLocaleString("es-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 
