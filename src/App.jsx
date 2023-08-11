@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact';
 import { Cart } from './pages/Cart';
 import { CartProvider } from './state/Cart.context';
 import { CartForm } from './pages/CartForm';
+import { ToastContainer } from 'react-toastify';
 
 const Root = () => {
   return(
@@ -45,7 +46,7 @@ function App() {
       <CartProvider>
         <RouterProvider router={routes} />        
       </CartProvider>   
-      
+      <ToastContainer />
       </div>      
          
       

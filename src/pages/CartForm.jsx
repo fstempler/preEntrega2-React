@@ -3,7 +3,9 @@ import { useCartContext } from "../state/Cart.context";
 import { useState } from 'react';
 import { addOrder } from '../lib/orders.requests';
 import { updateManyRecords } from '../lib/records.requests';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/cartForm.css';
 
 
@@ -20,6 +22,19 @@ export const CartForm = () => {
     
 
     const createOrder = async () => {
+        const navigate = useNavigate();
+        if (cart.length == 0 ){
+            toast.error('🤨 Cart is empty!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });          
+        }else{
         const order = {
             buyer: {firstName, lastName, phone, email},
             items,
@@ -29,10 +44,22 @@ export const CartForm = () => {
         await updateManyRecords(items);
         cleanCart();
         //Ponerlo pantalla emergente con el detalle del pedido y el ID
-        alert(id);
-        console.log(id);
+        toast.info(id,{
+            position: "top-center",
+            // autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            onClose: navigate('/'),
+            });
+        
+        // console.log(id);
                                              
     }
+}
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,27 +72,72 @@ export const CartForm = () => {
     const validateForm = () => {
         // Validaciones
         if (firstName.trim() === '') {
-            alert('First Name is required');
+            toast.error('🤨 First Name is required!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });            
             return false;
         }
 
-        if (lastName.trim() === '') {
-            alert('Last Name is required');
+        if (lastName.trim() === '') {            
+            toast.error('🤨 Last Name is required', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             return false;
         }
 
-        if (email.trim() === '') {
-            alert('Email is required');
+        if (email.trim() === '') {            
+            toast.error('🤨 Email is required', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             return false;
         }
 
-        if (email !== confirmEmail) {
-            alert('Emails do not match');
+        if (email !== confirmEmail) {            
+            toast.error('🤨 Emails do not match', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             return false;
         }
 
-        if (!phone.match(/^\+?\d+$/)) {
-            alert('Invalid Phone number');
+        if (!phone.match(/^\+?\d+$/)) {            
+            toast.error('🤨 Invalid Phone number', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             return false;
         }
 
@@ -155,14 +227,14 @@ export const CartForm = () => {
             </div>
                 
             <div className="item__btn d-flex justify-content-center">
-                <NavLink to={"/"} className="nav-link"> 
+                
                     <button 
                         type="submit" 
                         className="btn btnConfirm"
                         onClick={handleSubmit}>
                         Confirm Order
                     </button>
-                </NavLink>
+                
             </div>       
             
             
