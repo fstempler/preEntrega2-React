@@ -1,7 +1,13 @@
+.itemContainer{
+  background-color:  #22333B85;
+  border-radius: 10px;
+  margin: 10px 0;
+}
 .mainContainer{
     margin-left: auto;
     margin-right: auto;
 }
+
 
 .confirm{
   padding: 10px;

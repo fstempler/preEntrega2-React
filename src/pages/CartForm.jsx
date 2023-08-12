@@ -149,19 +149,19 @@ export const CartForm = () => {
     };
 
     return (
-        <div className="container row mainContainer">
+        <div className="container row mainContainer">                        
+            
             <div className='d-flex justify-content-center confirm'>
-                <h4 className='confirmationText'>Confirm your order</h4>                
+            <span className="total mb-1">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
+            </span>
             </div>
             <hr />
+
             {/* Order detail */}
-            <div className='col-md-6 col-sm-12'>         
-                <span className="total mb-1">Total: ${getTotalPrice().toLocaleString("es-US",{minimumFractionDigits: 2, maximumFractionDigits: 2})}
-            </span>
-            <hr />
+            <div className='col-md-6 col-sm-12'>                         
             {
             cart.map((item) => 
-            <div className="container" key={item.id}>
+            <div className="itemContainer" key={item.id}>
                 <div className="align-items-start">                              
                     <div className="d-flex flex-column mb-3">
                         <span className="title">{item.title}</span>

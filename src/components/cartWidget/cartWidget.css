@@ -1,0 +1,52 @@
+/* Estilos para el dropdown */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%; 
+    right: 0; 
+    left: -400%;
+    background-color: #22333B;
+    box-shadow: -8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+  }
+  @media (max-width: 767px) {
+    .dropdown-content {
+      display: none;
+    }
+  }
+  
+  /* item del carrito dentro del dropdown */
+  .dropdown-content div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* título del item */
+  .dropdown-content div span:first-child {
+    font-weight: bold;
+    color: #888;
+    font-size: small;
+  }
+  
+  /* cantidad del item */
+  .dropdown-content div span:last-child {
+    display: flex;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  /* carrito */
+  .cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  
+  
