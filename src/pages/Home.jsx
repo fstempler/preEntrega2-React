@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getRecords } from "../lib/records.requests"; //importa la función getRecords del array records
 import { ItemListContainer } from "../components/itemListContainer/ItemListContainer"; //Importa itemListContainer
 import { Loader } from '../components/Loader/Loader';
+import { Carousel } from "../components/carousel/carousel";
                                     
 //el componente Home usa useState para almacenar la lista de productos y luego utiliza useEffect 
 //para obtener la lista de productos y actualizar el estado cuanto se monta en el DOM.
@@ -22,6 +23,7 @@ export const Home = () => {
     return (
         <div>
             <div>
+                <Carousel />
                 <ItemListContainer products={products}/>
             </div>
         </div>

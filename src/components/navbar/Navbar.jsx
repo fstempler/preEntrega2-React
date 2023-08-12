@@ -1,7 +1,7 @@
 
 import './navbar.css';
 import CartWidget from "../cartWidget/CartWidget";
-import logo from "../../assets/logo-removebg-preview.png"
+import logo from "../../assets/logo-removebg-preview.png";
 import { NavLink, Outlet } from "react-router-dom";
 
 
