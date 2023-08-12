@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getRecords } from "../lib/records.requests"; //importa la función getRecords del array records
-import { ItemListContainer } from "../components/itemListContainer/ItemListContainer"; //Importa itemListContainer
+import { getRecords } from "../lib/records.requests"; 
+import { ItemListContainer } from "../components/itemListContainer/ItemListContainer"; 
 import { Loader } from '../components/Loader/Loader';
 import { Carousel } from "../components/Carousel/Carousel";
                                     
