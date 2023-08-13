@@ -1,5 +1,5 @@
 /* Estilos para el dropdown */
-.dropdown-content {
+.content {
     display: block;
     position: absolute;
     top: 100%; 
@@ -11,13 +11,13 @@
     z-index: 1;
   }
   @media (max-width: 767px) {
-    .dropdown-content {
+    .content {
       display: none;
     }
   }
   
   /* item del carrito dentro del dropdown */
-  .dropdown-content div {
+  .content div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,14 +27,14 @@
   }
   
   /* título del item */
-  .dropdown-content div span:first-child {
+  .content div span:first-child {
     font-weight: bold;
     color: #888;
     font-size: small;
   }
   
   /* cantidad del item */
-  .dropdown-content div span:last-child {
+  .content div span:last-child {
     display: flex;
     font-size: 0.8rem;
     color: #888;
