@@ -42,6 +42,7 @@ export const Cart = () => {
                     <button
                     className="btn btn-dark btn-sm"
                     onClick={() => increaseQuantity(item.id)}
+                    
                     >
                     +
                     </button>{' '}
