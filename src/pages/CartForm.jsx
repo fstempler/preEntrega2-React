@@ -69,7 +69,11 @@ export const CartForm = () => {
         }
         createOrder();
     };
-
+    //Función para validar email
+    function isEmailValid(email) {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email)
+    }
     // Validaciones
     const validateForm = () => {
         
@@ -101,8 +105,24 @@ export const CartForm = () => {
             return false;
         }
 
+       
+
         if (email.trim() === '') {            
             toast.error('🤨 Email is required', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+            return false;
+        }
+
+        if (!isEmailValid(email)) {            
+            toast.error('🤨 Invalid Email ', {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
